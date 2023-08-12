@@ -51,7 +51,11 @@ public class CustomBullet : MonoBehaviour
     private void Explode()
     {
         //Instantiate explosion
-        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+        if (explosion != null)
+        {
+            GameObject impactGO = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(impactGO, 2f);
+        }
 
         //Check for enemies 
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsPlayer);

@@ -39,12 +39,12 @@ public class Gun : MonoBehaviour
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            //Enemy enemy = hit.transform.GetComponent<Enemy>();
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
 
-            //if (enemy)
-            //{
-            //    enemy.TakeDamage(damage);
-            //}
+            if (enemy)
+            {
+                enemy.TakeDamage(damage);
+            }
 
             GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactGO, 2f);
