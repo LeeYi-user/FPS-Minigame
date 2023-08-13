@@ -118,8 +118,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject destroyGO = Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(destroyGO, 2f);
-            gameObject.SetActive(false);
-            Invoke(nameof(Die), 0.5f);
+            Die();
         }
     }
     private void Die()
