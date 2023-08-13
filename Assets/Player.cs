@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
 	public HealthBar healthBar;
 
+	public GameOver gameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +30,12 @@ public class Player : MonoBehaviour
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
+
+		if (currentHealth <= 0f)
+        {
+			gameOver.Setup("YOU LOSE");
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		}
 	}
 }

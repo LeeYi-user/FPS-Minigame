@@ -15,6 +15,8 @@ public class Gun : MonoBehaviour
     public AudioSource source;
     public AudioClip clip;
 
+    public bool gameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !gameOver)
         {
             Shoot();
         }

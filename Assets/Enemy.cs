@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    public bool gameOver;
+
     private void Awake()
     {
         player = GameObject.Find("PlayerObj").transform;
@@ -38,13 +40,16 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        if (!gameOver)
+        {
+            //Check for sight and attack range
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+            if (!playerInSightRange && !playerInAttackRange) Patroling();
+            if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+            if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        }
     }
 
     private void Patroling()
@@ -113,7 +118,8 @@ public class Enemy : MonoBehaviour
         {
             GameObject destroyGO = Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy(destroyGO, 2f);
-            Die();
+            gameObject.SetActive(false);
+            Invoke(nameof(Die), 0.5f);
         }
     }
     private void Die()
