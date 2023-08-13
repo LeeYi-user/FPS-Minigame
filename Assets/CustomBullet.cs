@@ -57,18 +57,26 @@ public class CustomBullet : MonoBehaviour
             Destroy(impactGO, 2f);
         }
 
-        //Check for enemies 
-        Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsPlayer);
-        for (int i = 0; i < enemies.Length; i++)
+        //Check for players 
+        Collider[] players = Physics.OverlapSphere(transform.position, explosionRange, whatIsPlayer);
+
+        for (int i = 0; i < players.Length; i++)
         {
-            //Get component of enemy and call Take Damage
+            //Get component of player and call Take Damage
 
             //Just an example!
             ///enemies[i].GetComponent<ShootingAi>().TakeDamage(explosionDamage);
 
-            //Add explosion force (if enemy has a rigidbody)
-            if (enemies[i].GetComponent<Rigidbody>())
-                enemies[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
+            //Add explosion force (if player has a rigidbody)
+            if (players[i].GetComponent<Rigidbody>())
+                players[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
+
+            Player player = players[i].transform.GetComponent<Player>();
+
+            if (player)
+            {
+                player.TakeDamage(explosionDamage);
+            }
         }
 
         //Add a little delay, just to make sure everything works fine
