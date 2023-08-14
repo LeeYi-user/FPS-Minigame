@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
-    public GameOver gameOver;
+    public GameOver GameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class Enemies : MonoBehaviour
     {
         if (transform.childCount == 0)
         {
-            gameOver.Setup("YOU WIN");
+            GameOver.Setup("YOU WIN");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

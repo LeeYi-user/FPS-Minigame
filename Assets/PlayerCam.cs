@@ -11,6 +11,7 @@ public class PlayerCam : MonoBehaviour
     float yRotation = 90;
 
     public Transform orientation;
+
     public bool gameOver;
 
     // Start is called before the first frame update

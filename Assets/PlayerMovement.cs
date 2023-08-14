@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    public GameOver GameOver;
     public bool gameOver;
 
     private void Start()
@@ -50,9 +51,18 @@ public class PlayerMovement : MonoBehaviour
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
+        if (transform.position.y <= 0f)
+        {
+            GameOver.Setup("YOU LOSE");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
         if (gameOver)
         {
             moveSpeed = 0;
+            rb.useGravity = false;
+            rb.velocity = Vector3.zero;
         }
         else
         {
