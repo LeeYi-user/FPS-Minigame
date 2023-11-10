@@ -27,7 +27,7 @@ public class Missile : MonoBehaviour
     {
         if (collision.collider.tag == "Player")
         {
-            collision.collider.GetComponent<Player>().TakeDamage(1f);
+            collision.collider.GetComponent<Player>().TakeDamage(2f);
         }
     }
 }

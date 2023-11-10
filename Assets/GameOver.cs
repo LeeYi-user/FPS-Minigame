@@ -9,6 +9,7 @@ public class GameOver : MonoBehaviour
     public TextMeshProUGUI title;
     public Camera playerCam;
     public GameObject gun;
+    public GameObject gun2;
     public GameObject enemies;
     public GameObject player;
 
@@ -16,6 +17,7 @@ public class GameOver : MonoBehaviour
     {
         playerCam.GetComponent<PlayerCam>().gameOver = true;
         gun.GetComponent<Gun>().gameOver = true;
+        gun2.GetComponent<Gun>().gameOver = true;
 
         try
         {

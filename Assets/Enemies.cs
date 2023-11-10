@@ -6,6 +6,7 @@ public class Enemies : MonoBehaviour
 {
     public GameOver GameOver;
     public GameObject bossPrefab;
+    public GameObject weaponHolder;
 
     GameObject boss;
     bool bossSummoned;
@@ -21,6 +22,8 @@ public class Enemies : MonoBehaviour
     {
         if (transform.childCount == 0 && !bossSummoned)
         {
+            weaponHolder.GetComponent<WeaponSwitch>().SelectWeapon(1);
+
             boss = Instantiate(bossPrefab, new Vector3(5, 15, 0), Quaternion.identity);
             bossSummoned = true;
         }

@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
+    public float fireRate = 15f;
     public float impactForce = 200;
 
     public Camera fpsCam;
@@ -17,6 +18,8 @@ public class Gun : MonoBehaviour
 
     public bool gameOver;
 
+    float nextTimeToFire = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +29,21 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && !gameOver)
+        if (WeaponSwitch.selectedWeapon == 0)
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1") && !gameOver && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1f / fireRate;
+                Shoot();
+            }
+        }
+        else
+        {
+            if (Input.GetButton("Fire1") && !gameOver && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1f / fireRate;
+                Shoot();
+            }
         }
     }
 
