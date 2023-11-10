@@ -17,12 +17,37 @@ public class GameOver : MonoBehaviour
         playerCam.GetComponent<PlayerCam>().gameOver = true;
         gun.GetComponent<Gun>().gameOver = true;
 
-        if (text == "YOU LOSE")
+        try
         {
             foreach (Enemy enemy in enemies.GetComponentsInChildren<Enemy>())
             {
                 enemy.gameOver = true;
             }
+        }
+        catch
+        {
+            // pass
+        }
+
+        try
+        {
+            foreach (GameObject missile in GameObject.FindGameObjectsWithTag("Missile"))
+            {
+                missile.GetComponent<Missile>().TakeDamage(0);
+            }
+        }
+        catch
+        {
+            // pass
+        }
+
+        try
+        {
+            GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().gameOver = true;
+        }
+        catch
+        {
+            // pass
         }
 
         player.GetComponent<PlayerMovement>().gameOver = true;

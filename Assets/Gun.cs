@@ -42,10 +42,20 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Enemy enemy = hit.transform.GetComponent<Enemy>();
+            Missile missile = hit.transform.GetComponent<Missile>();
+            Boss boss = hit.transform.GetComponent<Boss>();
 
             if (enemy)
             {
                 enemy.TakeDamage(damage);
+            }
+            else if (missile)
+            {
+                missile.TakeDamage(damage);
+            }
+            else if (boss)
+            {
+                boss.TakeDamage(damage);
             }
 
             GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));

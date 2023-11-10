@@ -484,6 +484,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drobo (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8931697492554238155, guid: 47ce784d79e4d96449cab6f7149b88a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ce784d79e4d96449cab6f7149b88a2, type: 3}
 --- !u!198 &129381888 stripped
@@ -2537,6 +2541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOver: {fileID: 967512466}
+  bossPrefab: {fileID: 6296978132573398835, guid: e6705e49a0c7c614890680a474c03ed7, type: 3}
 --- !u!1 &442903031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,7 +2941,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25418
+  m_Name: pb_Mesh24244
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3539,7 +3544,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25350
+  m_Name: pb_Mesh24176
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4065,7 +4070,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25432
+  m_Name: pb_Mesh24258
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4440,7 +4445,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25248
+  m_Name: pb_Mesh24074
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4604,7 +4609,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25388
+  m_Name: pb_Mesh24214
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5634,7 +5639,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25282
+  m_Name: pb_Mesh24108
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6223,7 +6228,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25446
+  m_Name: pb_Mesh24272
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6387,7 +6392,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25478
+  m_Name: pb_Mesh24306
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6632,7 +6637,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25264
+  m_Name: pb_Mesh24090
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8381,7 +8386,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25196
+  m_Name: pb_Mesh24022
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8545,7 +8550,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25460
+  m_Name: pb_Mesh24286
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10033,6 +10038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drobo
       objectReference: {fileID: 0}
+    - target: {fileID: 8931697492554238155, guid: 47ce784d79e4d96449cab6f7149b88a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ce784d79e4d96449cab6f7149b88a2, type: 3}
 --- !u!4 &1947871613 stripped
@@ -10046,7 +10055,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25160
+  m_Name: pb_Mesh23984
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10258,6 +10267,10 @@ PrefabInstance:
     - target: {fileID: 8931697492554238155, guid: 47ce784d79e4d96449cab6f7149b88a2, type: 3}
       propertyPath: m_Name
       value: Drobo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931697492554238155, guid: 47ce784d79e4d96449cab6f7149b88a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ce784d79e4d96449cab6f7149b88a2, type: 3}

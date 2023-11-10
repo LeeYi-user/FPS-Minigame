@@ -5,7 +5,11 @@ using UnityEngine;
 public class Enemies : MonoBehaviour
 {
     public GameOver GameOver;
+    public GameObject bossPrefab;
 
+    GameObject boss;
+    bool bossSummoned;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +19,13 @@ public class Enemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.childCount == 0)
+        if (transform.childCount == 0 && !bossSummoned)
+        {
+            boss = Instantiate(bossPrefab, new Vector3(5, 15, 0), Quaternion.identity);
+            bossSummoned = true;
+        }
+
+        if (!boss && bossSummoned)
         {
             GameOver.Setup("YOU WIN");
             Cursor.lockState = CursorLockMode.None;
