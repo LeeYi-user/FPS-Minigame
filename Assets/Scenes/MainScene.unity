@@ -2702,7 +2702,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   orientation: {fileID: 1152721815}
-  GameOver: {fileID: 967512466}
+  GameOver: {fileID: 0}
   gameOver: 0
 --- !u!1001 &406144296
 PrefabInstance:
@@ -5417,6 +5417,7 @@ MonoBehaviour:
   gun2: {fileID: 129999841}
   enemies: {fileID: 427393381}
   player: {fileID: 331613012}
+  arena: {fileID: 1043771740}
 --- !u!1 &1016981786
 GameObject:
   m_ObjectHideFlags: 0
@@ -5794,6 +5795,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1043771741}
+  - component: {fileID: 1043771742}
   m_Layer: 7
   m_Name: Arena
   m_TagString: Untagged
@@ -5829,6 +5831,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1043771742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043771740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687d74f2f81779a409e970ae27368dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medkit: {fileID: 2868615631027704358, guid: 623833ef7cb9d7a47aaa2a51a0da9353, type: 3}
+  gameover: 0
 --- !u!1 &1046840258
 GameObject:
   m_ObjectHideFlags: 0

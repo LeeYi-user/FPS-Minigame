@@ -38,4 +38,16 @@ public class Player : MonoBehaviour
 			Cursor.visible = true;
 		}
 	}
+
+	public void TakeHealth(float health)
+    {
+		currentHealth += health;
+
+		if (currentHealth > maxHealth)
+        {
+			currentHealth = maxHealth;
+        }
+
+		healthBar.SetHealth(currentHealth);
+	}
 }

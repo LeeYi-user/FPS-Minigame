@@ -12,12 +12,14 @@ public class GameOver : MonoBehaviour
     public GameObject gun2;
     public GameObject enemies;
     public GameObject player;
+    public GameObject arena;
 
     public void Setup(string text)
     {
         playerCam.GetComponent<PlayerCam>().gameOver = true;
         gun.GetComponent<Gun>().gameOver = true;
         gun2.GetComponent<Gun>().gameOver = true;
+        arena.GetComponent<SpawnMedkit>().gameover = true;
 
         try
         {

@@ -19,7 +19,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        regenTime = 0.9f;
+        regenTime = 0.8f;
         timer = 3;
     }
 
@@ -41,9 +41,9 @@ public class Boss : MonoBehaviour
             Instantiate(projectile, transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)), Quaternion.identity);
             timer = regenTime;
 
-            if (regenTime > 0.3f)
+            if (regenTime > 0.4f)
             {
-                regenTime -= 0.03f;
+                regenTime -= 0.02f;
             }
         }
     }
