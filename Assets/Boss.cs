@@ -57,6 +57,7 @@ public class Boss : MonoBehaviour
         if (health <= 0)
         {
             GameObject destroyGO = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            ScoreBoard.score += 500;
             Destroy(destroyGO, 2f);
             Destroy(gameObject);
         }

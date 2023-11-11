@@ -20,6 +20,7 @@ public class Missile : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        ScoreBoard.score += 5;
         Destroy(gameObject);
     }
 

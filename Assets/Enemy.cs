@@ -117,6 +117,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             GameObject destroyGO = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            ScoreBoard.score += 20;
             Destroy(destroyGO, 2f);
             Die();
         }
