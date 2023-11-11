@@ -19,7 +19,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        regenTime = 0.8f;
+        regenTime = 1f;
         timer = 3;
     }
 
@@ -41,9 +41,9 @@ public class Boss : MonoBehaviour
             Instantiate(projectile, transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)), Quaternion.identity);
             timer = regenTime;
 
-            if (regenTime > 0.4f)
+            if (regenTime > 0.2f)
             {
-                regenTime -= 0.02f;
+                regenTime -= 0.04f;
             }
         }
     }
@@ -57,7 +57,7 @@ public class Boss : MonoBehaviour
         if (health <= 0)
         {
             GameObject destroyGO = Instantiate(destroyEffect, transform.position, Quaternion.identity);
-            ScoreBoard.score += 500;
+            ScoreBoard.score += 800;
             Destroy(destroyGO, 2f);
             Destroy(gameObject);
         }

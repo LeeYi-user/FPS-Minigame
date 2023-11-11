@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
     public float fireRate = 15f;
+    public float throwRate = 1f;
     public float impactForce = 200;
 
     public Camera fpsCam;
@@ -19,6 +20,10 @@ public class Gun : MonoBehaviour
     public bool gameOver;
 
     float nextTimeToFire = 0f;
+    float nextTimeToThrow = 0f;
+
+    public GameObject shurikenPrefab;
+    public Transform shurikenHolder;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +50,21 @@ public class Gun : MonoBehaviour
                 Shoot();
             }
         }
+
+        if (Input.GetButtonDown("Fire2") && !gameOver && Time.time >= nextTimeToThrow)
+        {
+            nextTimeToThrow = Time.time + 1f / throwRate;
+            Throw();
+        }
+    }
+
+    void Throw()
+    {
+        GameObject shuriken = Instantiate(shurikenPrefab, shurikenHolder.position, Quaternion.identity);
+
+        shuriken.GetComponent<Shuriken>().moveDirection = fpsCam.transform.forward;
+        shuriken.transform.LookAt(shuriken.transform.position + fpsCam.transform.forward);
+        shuriken.transform.Rotate(90, 0, 0);
     }
 
     void Shoot()

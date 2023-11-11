@@ -117,14 +117,19 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             GameObject destroyGO = Instantiate(destroyEffect, transform.position, Quaternion.identity);
-            ScoreBoard.score += 20;
+
+            if (timeBetweenAttacks >= 0.5)
+            {
+                ScoreBoard.score += 20;
+            }
+            else
+            {
+                ScoreBoard.score += 40;
+            }
+
             Destroy(destroyGO, 2f);
-            Die();
+            Destroy(gameObject);
         }
-    }
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()
