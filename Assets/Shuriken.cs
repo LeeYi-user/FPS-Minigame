@@ -18,7 +18,7 @@ public class Shuriken : MonoBehaviour
     {
         transform.position += moveDirection * 20 * Time.deltaTime;
         
-        transform.Rotate(0, 0, -90 * Time.deltaTime);
+        transform.Rotate(0, 0, -360 * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider collider)

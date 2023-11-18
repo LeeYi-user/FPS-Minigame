@@ -10,6 +10,8 @@ public class Missile : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
+
+        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame

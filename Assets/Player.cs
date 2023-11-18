@@ -22,7 +22,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (Input.GetKeyDown(KeyCode.P))
+        {
+			maxHealth = 10000;
+			currentHealth = maxHealth;
 
+			healthBar.SetMaxHealth(maxHealth);
+        }
     }
 
 	public void TakeDamage(float damage)

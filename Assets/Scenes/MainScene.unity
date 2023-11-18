@@ -707,6 +707,26 @@ MonoBehaviour:
   gameOver: 0
   shurikenPrefab: {fileID: 8515993738224678373, guid: e068fa0915be9004eb1ea03d7b53ea8c, type: 3}
   shurikenHolder: {fileID: 1412943492}
+--- !u!95 &129999844
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129999841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab527c1656e9e9d4fa3c5974cf21a042, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &163196408
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,6 +973,26 @@ MonoBehaviour:
   gameOver: 0
   shurikenPrefab: {fileID: 8515993738224678373, guid: e068fa0915be9004eb1ea03d7b53ea8c, type: 3}
   shurikenHolder: {fileID: 1412943492}
+--- !u!95 &182094934
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182094928}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab527c1656e9e9d4fa3c5974cf21a042, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!43 &184116109
 Mesh:
   m_ObjectHideFlags: 0
