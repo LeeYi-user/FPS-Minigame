@@ -20,6 +20,7 @@ public class GameOver : MonoBehaviour
         gun.GetComponent<Gun>().gameOver = true;
         gun2.GetComponent<Gun>().gameOver = true;
         arena.GetComponent<SpawnMedkit>().gameover = true;
+        arena.GetComponent<SpawnLandmine>().gameover = true;
 
         try
         {

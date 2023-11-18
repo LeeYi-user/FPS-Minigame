@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
 
 	public GameOver GameOver;
 
+	public AudioSource source;
+	public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,7 @@ public class Player : MonoBehaviour
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
+		source.PlayOneShot(clip);
 
 		if (currentHealth <= 0f)
         {

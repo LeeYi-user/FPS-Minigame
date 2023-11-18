@@ -79,6 +79,7 @@ public class Gun : MonoBehaviour
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             Missile missile = hit.transform.GetComponent<Missile>();
             Boss boss = hit.transform.GetComponent<Boss>();
+            Landmine landmine = hit.transform.GetComponent<Landmine>();
 
             if (enemy)
             {
@@ -91,6 +92,10 @@ public class Gun : MonoBehaviour
             else if (boss)
             {
                 boss.TakeDamage(damage);
+            }
+            else if (landmine)
+            {
+                Destroy(hit.transform.gameObject);
             }
 
             GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
