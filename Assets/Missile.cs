@@ -10,8 +10,6 @@ public class Missile : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
-
-        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame
@@ -22,7 +20,7 @@ public class Missile : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        ScoreBoard.score += 5;
+        ScoreBoard.score += 1;
         Destroy(gameObject);
     }
 
