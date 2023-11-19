@@ -84,6 +84,8 @@ public class Gun : MonoBehaviour
             if (enemy)
             {
                 enemy.TakeDamage(damage);
+                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 2f);
             }
             else if (missile)
             {
@@ -92,14 +94,19 @@ public class Gun : MonoBehaviour
             else if (boss)
             {
                 boss.TakeDamage(damage);
+                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 2f);
             }
             else if (landmine)
             {
+                ScoreBoard.score += 5;
                 Destroy(hit.transform.gameObject);
             }
-
-            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGO, 2f);
+            else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("whatIsGround"))
+            {
+                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 2f);
+            }
         }
     }
 }
