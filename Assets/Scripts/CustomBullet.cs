@@ -67,11 +67,7 @@ public class CustomBullet : MonoBehaviour
             //Just an example!
             ///enemies[i].GetComponent<ShootingAi>().TakeDamage(explosionDamage);
 
-            //Add explosion force (if player has a rigidbody)
-            if (players[i].GetComponent<Rigidbody>())
-                players[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
-
-            Player player = players[i].transform.GetComponent<Player>();
+            Player player = players[i].transform.parent.GetComponent<Player>();
 
             if (player)
             {
@@ -90,13 +86,13 @@ public class CustomBullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Don't count collisions with other bullets
-        if (collision.collider.CompareTag("Bullet")) return;
+        if (collision.gameObject.CompareTag("Bullet")) return;
 
         //Count up collisions
         collisions++;
 
         //Explode if bullet hits a player directly and explodeOnTouch is activated
-        if (collision.collider.CompareTag("Player") && explodeOnTouch) Explode();
+        if (collision.gameObject.CompareTag("Player") && explodeOnTouch) Explode();
     }
 
     private void Setup()

@@ -20,7 +20,7 @@ public class MainSceneManager : MonoBehaviour
     public Gun playerGun;
     public Gun playerGun2;
 
-    public GameObject enemyManager;
+    public GameObject enemySpawner;
     public GameObject gameOeverScreen;
     public TextMeshProUGUI gameOverTitle;
 
@@ -59,7 +59,7 @@ public class MainSceneManager : MonoBehaviour
 
         try
         {
-            foreach (Enemy enemy in enemyManager.GetComponentsInChildren<Enemy>())
+            foreach (Enemy enemy in enemySpawner.GetComponentsInChildren<Enemy>())
             {
                 enemy.gameOver = true;
             }

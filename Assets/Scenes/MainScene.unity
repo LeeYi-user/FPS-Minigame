@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 163196414}
   m_Layer: 8
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3082,7 +3082,7 @@ GameObject:
   - component: {fileID: 427393382}
   - component: {fileID: 427393383}
   m_Layer: 0
-  m_Name: EnemyManager
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10631,7 +10631,7 @@ MonoBehaviour:
   playerCam: {fileID: 1726528543}
   playerGun: {fileID: 182094933}
   playerGun2: {fileID: 129999843}
-  enemyManager: {fileID: 427393381}
+  enemySpawner: {fileID: 427393381}
   gameOeverScreen: {fileID: 967512462}
   gameOverTitle: {fileID: 922856236}
 --- !u!1001 &1947871607
