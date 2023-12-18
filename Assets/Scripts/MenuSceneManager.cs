@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MenuSceneManager : MonoBehaviour
 {
     public Slider slider;
     public static float sens = 0.5f;

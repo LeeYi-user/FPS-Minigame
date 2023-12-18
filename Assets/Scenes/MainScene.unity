@@ -10666,45 +10666,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1898962511}
-  - component: {fileID: 1898962513}
-  - component: {fileID: 1898962510}
-  - component: {fileID: 1898962509}
   - component: {fileID: 1898962512}
   m_Layer: 0
-  m_Name: For Script
+  m_Name: MainSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1898962509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1898962508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b1aa8def3321249a3b7df8641828d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  landmine: {fileID: 8449489487528559825, guid: 33f257d8f012b8f43bfff0552ea094c3, type: 3}
-  gameover: 0
---- !u!114 &1898962510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1898962508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 687d74f2f81779a409e970ae27368dd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medkit: {fileID: 2868615631027704358, guid: 623833ef7cb9d7a47aaa2a51a0da9353, type: 3}
-  gameover: 0
 --- !u!4 &1898962511
 Transform:
   m_ObjectHideFlags: 0
@@ -10732,6 +10701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9498a8f2303625d41b8723a63fbb54c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 438362549}
+  medkit: {fileID: 2868615631027704358, guid: 623833ef7cb9d7a47aaa2a51a0da9353, type: 3}
+  landmine: {fileID: 8449489487528559825, guid: 33f257d8f012b8f43bfff0552ea094c3, type: 3}
   playerMovement: {fileID: 331613015}
   playerCam: {fileID: 1726528543}
   playerGun: {fileID: 182094933}
@@ -10739,19 +10711,6 @@ MonoBehaviour:
   enemyManager: {fileID: 427393381}
   gameOeverScreen: {fileID: 967512462}
   gameOverTitle: {fileID: 922856236}
---- !u!114 &1898962513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1898962508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33a48649502c4ef418fec331a501cde5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 438362549}
 --- !u!1001 &1947871607
 PrefabInstance:
   m_ObjectHideFlags: 0
