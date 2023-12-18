@@ -31,8 +31,6 @@ public class EnemySpawner : MonoBehaviour
         if (!boss && bossSummoned)
         {
             MainSceneManager.GameOver("YOU WIN");
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
     }
 }

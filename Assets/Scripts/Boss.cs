@@ -14,8 +14,6 @@ public class Boss : MonoBehaviour
     float regenTime;
     float timer;
 
-    public bool gameOver;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +24,7 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOver)
+        if (MainSceneManager.gameover)
         {
             return;
         }

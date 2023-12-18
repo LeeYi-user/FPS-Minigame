@@ -15,24 +15,27 @@ public class MainSceneManager : MonoBehaviour
     float medkitTimer;
     float landmineTimer;
 
-    public PlayerMovement playerMovement;
-    public PlayerCam playerCam;
-    public Gun playerGun;
-    public Gun playerGun2;
-
     public GameObject enemySpawner;
     public GameObject gameOeverScreen;
     public TextMeshProUGUI gameOverTitle;
+
+    public static bool gameover;
 
     private void Start()
     {
         score = 0;
         medkitTimer = 10;
         landmineTimer = 7;
+        gameover = false;
     }
 
     private void Update()
     {
+        if (gameover)
+        {
+            return;
+        }
+
         scoreText.text = "Score: " + score.ToString();
         medkitTimer -= Time.deltaTime;
         landmineTimer -= Time.deltaTime;
@@ -52,31 +55,9 @@ public class MainSceneManager : MonoBehaviour
 
     public void GameOver(string text)
     {
-        playerMovement.gameOver = true;
-        playerCam.gameOver = true;
-        playerGun.gameOver = true;
-        playerGun2.gameOver = true;
-
-        try
-        {
-            foreach (Enemy enemy in enemySpawner.GetComponentsInChildren<Enemy>())
-            {
-                enemy.gameOver = true;
-            }
-        }
-        catch
-        {
-            // pass
-        }
-
-        try
-        {
-            GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().gameOver = true;
-        }
-        catch
-        {
-            // pass
-        }
+        gameover = true;
+        gameOverTitle.text = text;
+        gameOeverScreen.SetActive(true);
 
         try
         {
@@ -90,8 +71,8 @@ public class MainSceneManager : MonoBehaviour
             // pass
         }
 
-        gameOeverScreen.SetActive(true);
-        gameOverTitle.text = text;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void BackGame()

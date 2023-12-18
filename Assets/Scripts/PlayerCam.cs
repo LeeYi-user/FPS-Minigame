@@ -12,8 +12,6 @@ public class PlayerCam : MonoBehaviour
 
     public Transform orientation;
 
-    public bool gameOver;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +22,7 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameOver)
+        if (!MainSceneManager.gameover)
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * MenuSceneManager.sens * 10;
             float mouseY = Input.GetAxisRaw("Mouse Y") * MenuSceneManager.sens * 10;

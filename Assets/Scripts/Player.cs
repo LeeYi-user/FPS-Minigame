@@ -52,8 +52,6 @@ public class Player : MonoBehaviour
 		if (currentHealth <= 0f)
         {
 			MainSceneManager.GameOver("YOU LOSE");
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
 		}
 	}
 

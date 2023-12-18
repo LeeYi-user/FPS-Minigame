@@ -17,8 +17,6 @@ public class Gun : MonoBehaviour
     public AudioSource source;
     public AudioClip clip;
 
-    public bool gameOver;
-
     float nextTimeToFire = 0f;
     float nextTimeToThrow = 0f;
 
@@ -36,7 +34,7 @@ public class Gun : MonoBehaviour
     {
         if (WeaponSwitch.selectedWeapon == 0)
         {
-            if (Input.GetButtonDown("Fire1") && !gameOver && Time.time >= nextTimeToFire)
+            if (Input.GetButtonDown("Fire1") && !MainSceneManager.gameover && Time.time >= nextTimeToFire)
             {
                 nextTimeToFire = Time.time + 1f / fireRate;
                 Shoot();
@@ -44,14 +42,14 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            if (Input.GetButton("Fire1") && !gameOver && Time.time >= nextTimeToFire)
+            if (Input.GetButton("Fire1") && !MainSceneManager.gameover && Time.time >= nextTimeToFire)
             {
                 nextTimeToFire = Time.time + 1f / fireRate;
                 Shoot();
             }
         }
 
-        if (Input.GetButtonDown("Fire2") && !gameOver && Time.time >= nextTimeToThrow)
+        if (Input.GetButtonDown("Fire2") && !MainSceneManager.gameover && Time.time >= nextTimeToThrow)
         {
             nextTimeToThrow = Time.time + 1f / throwRate;
             Throw();

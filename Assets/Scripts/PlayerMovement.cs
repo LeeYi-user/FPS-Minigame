@@ -35,8 +35,6 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    public bool gameOver;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -50,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
-        if (gameOver)
+        if (MainSceneManager.gameover)
         {
             moveSpeed = 0;
             rb.useGravity = false;
