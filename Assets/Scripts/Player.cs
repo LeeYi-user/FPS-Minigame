@@ -32,7 +32,12 @@ public class Player : MonoBehaviour
 
 			healthBar.SetMaxHealth(maxHealth);
         }
-    }
+
+		if (transform.position.y < -5f && currentHealth > 0f)
+		{
+			TakeDamage(currentHealth);
+		}
+	}
 
 	public void TakeDamage(float damage)
 	{

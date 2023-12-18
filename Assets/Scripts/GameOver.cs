@@ -12,15 +12,15 @@ public class GameOver : MonoBehaviour
     public GameObject gun2;
     public GameObject enemies;
     public GameObject player;
-    public GameObject arena;
+    public GameObject gameOeverScreen;
 
     public void Setup(string text)
     {
         playerCam.GetComponent<PlayerCam>().gameOver = true;
         gun.GetComponent<Gun>().gameOver = true;
         gun2.GetComponent<Gun>().gameOver = true;
-        arena.GetComponent<SpawnMedkit>().gameover = true;
-        arena.GetComponent<SpawnLandmine>().gameover = true;
+        GetComponent<SpawnMedkit>().gameover = true;
+        GetComponent<SpawnLandmine>().gameover = true;
 
         try
         {
@@ -56,7 +56,7 @@ public class GameOver : MonoBehaviour
         }
 
         player.GetComponent<PlayerMovement>().gameOver = true;
-        gameObject.SetActive(true);
+        gameOeverScreen.SetActive(true);
         title.text = text;
     }
 
