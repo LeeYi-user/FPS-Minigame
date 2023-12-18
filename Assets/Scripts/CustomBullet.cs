@@ -23,7 +23,6 @@ public class CustomBullet : MonoBehaviour
     //Damage
     public int explosionDamage;
     public float explosionRange;
-    public float explosionForce;
 
     //Lifetime
     public int maxCollisions;
