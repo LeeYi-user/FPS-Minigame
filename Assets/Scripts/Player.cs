@@ -1,25 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
 	public float maxHealth = 100f;
 	public float currentHealth;
 
-	public HealthBar healthBar;
-
 	public GameOver GameOver;
 
 	public AudioSource source;
 	public AudioClip clip;
 
-    // Start is called before the first frame update
-    void Start()
+	public Slider slider;
+	public Gradient gradient;
+	public Image fill;
+
+	// Start is called before the first frame update
+	void Start()
     {
 		currentHealth = maxHealth;
 
-		healthBar.SetMaxHealth(maxHealth);
+		SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
 			maxHealth = 10000;
 			currentHealth = maxHealth;
 
-			healthBar.SetMaxHealth(maxHealth);
+			SetMaxHealth(maxHealth);
         }
 
 		if (transform.position.y < -5f && currentHealth > 0f)
@@ -43,7 +46,7 @@ public class Player : MonoBehaviour
 	{
 		currentHealth -= damage;
 
-		healthBar.SetHealth(currentHealth);
+		SetHealth(currentHealth);
 		source.PlayOneShot(clip);
 
 		if (currentHealth <= 0f)
@@ -63,6 +66,19 @@ public class Player : MonoBehaviour
 			currentHealth = maxHealth;
         }
 
-		healthBar.SetHealth(currentHealth);
+		SetHealth(currentHealth);
+	}
+
+	void SetMaxHealth(float health)
+	{
+		slider.maxValue = health;
+		slider.value = health;
+		fill.color = gradient.Evaluate(1f);
+	}
+
+	void SetHealth(float health)
+	{
+		slider.value = health;
+		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
 }
