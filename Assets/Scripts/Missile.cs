@@ -26,9 +26,9 @@ public class Missile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.collider.GetComponent<Player>().TakeDamage(5f);
+            collision.gameObject.GetComponent<Player>().TakeDamage(5f);
             Destroy(gameObject);
         }
     }

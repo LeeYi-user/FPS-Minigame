@@ -23,9 +23,9 @@ public class Landmine : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.collider.gameObject.GetComponent<Player>().TakeDamage(30f);
+            collision.gameObject.GetComponent<Player>().TakeDamage(30f);
             GameObject impactGO = Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(impactGO, 2f);
             Destroy(gameObject);

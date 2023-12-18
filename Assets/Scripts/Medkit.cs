@@ -21,9 +21,9 @@ public class Medkit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.collider.gameObject.GetComponent<Player>().TakeHealth(30f);
+            collision.gameObject.GetComponent<Player>().TakeHealth(30f);
             Destroy(gameObject);
         }
     }
