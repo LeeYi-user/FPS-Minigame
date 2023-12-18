@@ -1264,7 +1264,7 @@ GameObject:
   - component: {fileID: 1380544733808233795}
   - component: {fileID: 1214700738277878169}
   m_Layer: 10
-  m_Name: Drobo
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
