@@ -833,7 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  GameOver: {fileID: 1898962512}
+  MainSceneManager: {fileID: 1898962512}
   source: {fileID: 163196414}
   clip: {fileID: 8300000, guid: a37f44cbf8c2a7443a3c361efa2f233a, type: 3}
   slider: {fileID: 298489508}
@@ -2993,7 +2993,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   orientation: {fileID: 1152721815}
-  GameOver: {fileID: 1898962512}
   gameOver: 0
 --- !u!1001 &406144296
 PrefabInstance:
@@ -3120,7 +3119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33abf50b731cb4b4890b8616e6ae2c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOver: {fileID: 1898962512}
+  MainSceneManager: {fileID: 1898962512}
   bossPrefab: {fileID: 6296978132573398835, guid: e6705e49a0c7c614890680a474c03ed7, type: 3}
   weaponHolder: {fileID: 1839776491}
 --- !u!1 &438362547

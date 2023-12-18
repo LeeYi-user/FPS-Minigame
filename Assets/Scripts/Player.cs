@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 	public float maxHealth = 100f;
 	public float currentHealth;
 
-	public GameOver GameOver;
+	public MainSceneManager MainSceneManager;
 
 	public AudioSource source;
 	public AudioClip clip;
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
 		if (currentHealth <= 0f)
         {
-			GameOver.Setup("YOU LOSE");
+			MainSceneManager.GameOver("YOU LOSE");
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 		}

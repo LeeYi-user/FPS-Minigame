@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    public GameOver GameOver;
     public bool gameOver;
 
     private void Start()

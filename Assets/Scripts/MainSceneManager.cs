@@ -4,8 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameOver : MonoBehaviour
+public class MainSceneManager : MonoBehaviour
 {
+    public TextMeshProUGUI scoreText;
+    public static int score;
+
+    public GameObject medkit;
+    public GameObject landmine;
+
+    float medkitTimer;
+    float landmineTimer;
+
     public PlayerMovement playerMovement;
     public PlayerCam playerCam;
     public Gun playerGun;
@@ -15,11 +24,34 @@ public class GameOver : MonoBehaviour
     public GameObject gameOeverScreen;
     public TextMeshProUGUI gameOverTitle;
 
-    public void Setup(string text)
+    private void Start()
     {
-        GetComponent<SpawnMedkit>().gameover = true;
-        GetComponent<SpawnLandmine>().gameover = true;
+        score = 0;
+        medkitTimer = 10;
+        landmineTimer = 7;
+    }
 
+    private void Update()
+    {
+        scoreText.text = "Score: " + score.ToString();
+        medkitTimer -= Time.deltaTime;
+        landmineTimer -= Time.deltaTime;
+
+        if (medkitTimer <= 0)
+        {
+            Instantiate(medkit, new Vector3(Random.Range(-25f, 25f), 15, Random.Range(-25f, 25f)), Quaternion.Euler(-89.98f, 0f, 0f));
+            medkitTimer = 10;
+        }
+
+        if (landmineTimer <= 0)
+        {
+            Instantiate(landmine, new Vector3(Random.Range(-25f, 25f), 15, Random.Range(-25f, 25f)), Quaternion.Euler(-89.98f, 0f, 0f));
+            landmineTimer = 7;
+        }
+    }
+
+    public void GameOver(string text)
+    {
         playerMovement.gameOver = true;
         playerCam.gameOver = true;
         playerGun.gameOver = true;

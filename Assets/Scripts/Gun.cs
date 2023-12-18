@@ -99,7 +99,7 @@ public class Gun : MonoBehaviour
             }
             else if (landmine)
             {
-                ScoreBoard.score += 5;
+                MainSceneManager.score += 5;
                 Destroy(hit.transform.gameObject);
             }
             else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("whatIsGround"))

@@ -120,11 +120,11 @@ public class Enemy : MonoBehaviour
 
             if (timeBetweenAttacks >= 0.5)
             {
-                ScoreBoard.score += 20;
+                MainSceneManager.score += 20;
             }
             else
             {
-                ScoreBoard.score += 40;
+                MainSceneManager.score += 40;
             }
 
             Destroy(destroyGO, 2f);

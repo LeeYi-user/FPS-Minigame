@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameOver GameOver;
+    public MainSceneManager MainSceneManager;
     public GameObject bossPrefab;
     public GameObject weaponHolder;
 
@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
 
         if (!boss && bossSummoned)
         {
-            GameOver.Setup("YOU WIN");
+            MainSceneManager.GameOver("YOU WIN");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
