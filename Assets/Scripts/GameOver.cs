@@ -6,28 +6,40 @@ using TMPro;
 
 public class GameOver : MonoBehaviour
 {
-    public TextMeshProUGUI title;
-    public Camera playerCam;
-    public GameObject gun;
-    public GameObject gun2;
-    public GameObject enemies;
-    public GameObject player;
+    public PlayerMovement playerMovement;
+    public PlayerCam playerCam;
+    public Gun playerGun;
+    public Gun playerGun2;
+
+    public GameObject enemyManager;
     public GameObject gameOeverScreen;
+    public TextMeshProUGUI gameOverTitle;
 
     public void Setup(string text)
     {
-        playerCam.GetComponent<PlayerCam>().gameOver = true;
-        gun.GetComponent<Gun>().gameOver = true;
-        gun2.GetComponent<Gun>().gameOver = true;
         GetComponent<SpawnMedkit>().gameover = true;
         GetComponent<SpawnLandmine>().gameover = true;
 
+        playerMovement.gameOver = true;
+        playerCam.gameOver = true;
+        playerGun.gameOver = true;
+        playerGun2.gameOver = true;
+
         try
         {
-            foreach (Enemy enemy in enemies.GetComponentsInChildren<Enemy>())
+            foreach (Enemy enemy in enemyManager.GetComponentsInChildren<Enemy>())
             {
                 enemy.gameOver = true;
             }
+        }
+        catch
+        {
+            // pass
+        }
+
+        try
+        {
+            GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().gameOver = true;
         }
         catch
         {
@@ -46,18 +58,8 @@ public class GameOver : MonoBehaviour
             // pass
         }
 
-        try
-        {
-            GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>().gameOver = true;
-        }
-        catch
-        {
-            // pass
-        }
-
-        player.GetComponent<PlayerMovement>().gameOver = true;
         gameOeverScreen.SetActive(true);
-        title.text = text;
+        gameOverTitle.text = text;
     }
 
     public void BackGame()

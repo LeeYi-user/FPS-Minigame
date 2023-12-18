@@ -10733,13 +10733,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9498a8f2303625d41b8723a63fbb54c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: {fileID: 922856236}
-  playerCam: {fileID: 1726528541}
-  gun: {fileID: 182094928}
-  gun2: {fileID: 129999841}
-  enemies: {fileID: 427393381}
-  player: {fileID: 331613012}
+  playerMovement: {fileID: 331613015}
+  playerCam: {fileID: 1726528543}
+  playerGun: {fileID: 182094933}
+  playerGun2: {fileID: 129999843}
+  enemyManager: {fileID: 427393381}
   gameOeverScreen: {fileID: 967512462}
+  gameOverTitle: {fileID: 922856236}
 --- !u!114 &1898962513
 MonoBehaviour:
   m_ObjectHideFlags: 0
