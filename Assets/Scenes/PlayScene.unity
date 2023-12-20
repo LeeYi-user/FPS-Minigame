@@ -225,15 +225,19 @@ MonoBehaviour:
   damage: 10
   range: 100
   fireRate: 10
-  throwRate: 1
-  impactForce: 200
   fpsCam: {fileID: 1464897169}
   muzzleFlash: {fileID: 504529396}
-  impactEffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
-  source: {fileID: 51525606}
-  clip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
-  shurikenPrefab: {fileID: 8515993738224678373, guid: e068fa0915be9004eb1ea03d7b53ea8c, type: 3}
-  shurikenHolder: {fileID: 957966979}
+  impactEffect:
+  - {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
+  - {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
+  maxAmmo: 10
+  reloadTime: 1.5
+  audioSource: {fileID: 51525606}
+  audioClip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
+  animator: {fileID: 51525605}
+  BulletSpawnPoint: {fileID: 504529397}
+  BulletTrail: {fileID: 6082088667196707117, guid: 84077dac0b5c6f64fb7baa8d8751f7a5, type: 3}
+  BulletSpeed: 100
 --- !u!95 &51525605
 Animator:
   serializedVersion: 5
@@ -375,11 +379,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54ed609740aa0c544a7fcb55fccf0d3c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.55000013
+      value: 0.5500001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54ed609740aa0c544a7fcb55fccf0d3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.39999998
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54ed609740aa0c544a7fcb55fccf0d3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -451,16 +455,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
-  fireRate: 10
-  throwRate: 1
-  impactForce: 200
+  fireRate: 2
   fpsCam: {fileID: 1464897169}
   muzzleFlash: {fileID: 1864353178}
-  impactEffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
-  source: {fileID: 77989103}
-  clip: {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
-  shurikenPrefab: {fileID: 8515993738224678373, guid: e068fa0915be9004eb1ea03d7b53ea8c, type: 3}
-  shurikenHolder: {fileID: 957966979}
+  impactEffect:
+  - {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
+  - {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
+  maxAmmo: 6
+  reloadTime: 1.5
+  audioSource: {fileID: 77989103}
+  audioClip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
+  animator: {fileID: 77989102}
+  BulletSpawnPoint: {fileID: 1864353179}
+  BulletTrail: {fileID: 6082088667196707117, guid: 84077dac0b5c6f64fb7baa8d8751f7a5, type: 3}
+  BulletSpeed: 100
 --- !u!95 &77989102
 Animator:
   serializedVersion: 5
@@ -1403,6 +1411,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198000012944515248, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
   m_PrefabInstance: {fileID: 504529395}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &504529397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000011227296186, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
+  m_PrefabInstance: {fileID: 504529395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &627982360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,7 +1602,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-38686
+  m_Name: pb_Mesh24118
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2880,6 +2893,11 @@ PrefabInstance:
 --- !u!198 &1864353178 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198000012944515248, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
+  m_PrefabInstance: {fileID: 1864353177}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1864353179 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000011227296186, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
   m_PrefabInstance: {fileID: 1864353177}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1917718832

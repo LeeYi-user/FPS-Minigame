@@ -4,107 +4,139 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public float damage = 10f;
-    public float range = 100f;
-    public float fireRate = 15f;
-    public float throwRate = 1f;
-    public float impactForce = 200;
+    [SerializeField] private float damage; // 10
+    [SerializeField] private float range; // 100
+    [SerializeField] private float fireRate; // 2
 
-    public Camera fpsCam;
-    public ParticleSystem muzzleFlash;
-    public GameObject impactEffect;
+    [SerializeField] private Camera fpsCam;
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private GameObject[] impactEffect;
 
-    public AudioSource source;
-    public AudioClip clip;
+    [SerializeField] private int maxAmmo; // 6
+    [SerializeField] private float reloadTime; // 1.5
 
-    float nextTimeToFire = 0f;
-    float nextTimeToThrow = 0f;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private Animator animator;
 
-    public GameObject shurikenPrefab;
-    public Transform shurikenHolder;
+    [SerializeField] private Transform BulletSpawnPoint;
+    [SerializeField] private TrailRenderer BulletTrail;
+    [SerializeField] private float BulletSpeed; // 100
 
-    // Start is called before the first frame update
-    void Start()
+    private bool isReloading;
+    private int currentAmmo;
+    private float nextTimeToFire;
+
+    private void Start()
     {
-        
+        isReloading = false;
+        currentAmmo = maxAmmo;
+        nextTimeToFire = 0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        if (WeaponSwitch.selectedWeapon == 0)
+        if (PlaySceneManager.gameOver)
         {
-            if (Input.GetButtonDown("Fire1") && !MainSceneManager.gameover && Time.time >= nextTimeToFire)
-            {
-                nextTimeToFire = Time.time + 1f / fireRate;
-                Shoot();
-            }
-        }
-        else
-        {
-            if (Input.GetButton("Fire1") && !MainSceneManager.gameover && Time.time >= nextTimeToFire)
-            {
-                nextTimeToFire = Time.time + 1f / fireRate;
-                Shoot();
-            }
+            return;
         }
 
-        if (Input.GetButtonDown("Fire2") && !MainSceneManager.gameover && Time.time >= nextTimeToThrow)
+        if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1)) && Cursor.lockState == CursorLockMode.None)
         {
-            nextTimeToThrow = Time.time + 1f / throwRate;
-            Throw();
+            Cursor.lockState = CursorLockMode.Locked;
+            return;
+        }
+
+        if (isReloading)
+        {
+            return;
+        }
+
+        if (currentAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && Cursor.lockState == CursorLockMode.Locked)
+        {
+            nextTimeToFire = Time.time + 1f / fireRate;
+            Shoot();
         }
     }
 
-    void Throw()
+    private IEnumerator Reload()
     {
-        GameObject shuriken = Instantiate(shurikenPrefab, shurikenHolder.position, Quaternion.identity);
+        isReloading = true;
+        animator.SetBool("isReloading", true);
 
-        shuriken.GetComponent<Shuriken>().moveDirection = fpsCam.transform.forward;
-        shuriken.transform.LookAt(shuriken.transform.position + fpsCam.transform.forward);
-        shuriken.transform.Rotate(90, 0, 0);
+        yield return new WaitForSeconds(reloadTime);
+
+        isReloading = false;
+        animator.SetBool("isReloading", false);
+
+        currentAmmo = maxAmmo;
     }
 
-    void Shoot()
+    private void Shoot()
     {
+        currentAmmo--;
+
         muzzleFlash.Play();
-        source.PlayOneShot(clip);
+        audioSource.PlayOneShot(audioClip);
 
         RaycastHit hit;
+        int MadeImpact = 0;
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
-            Missile missile = hit.transform.GetComponent<Missile>();
-            Boss boss = hit.transform.GetComponent<Boss>();
-            Landmine landmine = hit.transform.GetComponent<Landmine>();
+            MadeImpact = 1;
 
-            if (enemy)
+            if (hit.transform.gameObject.CompareTag("Enemy"))
             {
-                enemy.TakeDamage(damage);
-                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                Destroy(impactGO, 2f);
-            }
-            else if (missile)
-            {
-                missile.TakeDamage(damage);
-            }
-            else if (boss)
-            {
-                boss.TakeDamage(damage);
-                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                Destroy(impactGO, 2f);
-            }
-            else if (landmine)
-            {
-                MainSceneManager.score += 5;
-                Destroy(hit.transform.gameObject);
-            }
-            else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("whatIsGround"))
-            {
-                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                Destroy(impactGO, 2f);
+                MadeImpact = 2;
+                hit.transform.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             }
         }
+
+        CreateBulletTrail_ServerRpc(BulletSpawnPoint.position, true, hit.point, hit.normal, MadeImpact, fpsCam.transform.forward);
+    }
+
+    private void CreateBulletTrail_ServerRpc(Vector3 position, bool IsReal, Vector3 HitPoint, Vector3 HitNormal, int MadeImpact, Vector3 forward)
+    {
+        TrailRenderer trail = Instantiate(BulletTrail, position, Quaternion.identity);
+
+        if (MadeImpact > 0)
+        {
+            StartCoroutine(SpawnTrail(trail, HitPoint, HitNormal, MadeImpact, IsReal));
+        }
+        else
+        {
+            StartCoroutine(SpawnTrail(trail, position + forward * range, Vector3.zero, MadeImpact, IsReal));
+        }
+    }
+
+    private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint, Vector3 HitNormal, int MadeImpact, bool IsReal)
+    {
+        Vector3 startPosition = Trail.transform.position;
+        float distance = Vector3.Distance(Trail.transform.position, HitPoint);
+        float remainingDistance = distance;
+
+        while (remainingDistance > 0)
+        {
+            Trail.transform.position = Vector3.Lerp(startPosition, HitPoint, 1 - (remainingDistance / distance));
+            remainingDistance -= BulletSpeed * Time.deltaTime;
+            yield return null;
+        }
+
+        Trail.transform.position = HitPoint;
+
+        if ((MadeImpact > 0) && IsReal)
+        {
+            GameObject impactGO = Instantiate(impactEffect[MadeImpact - 1], HitPoint, Quaternion.LookRotation(HitNormal));
+            Destroy(impactGO, 2f);
+        }
+
+        Destroy(Trail.gameObject, Trail.time);
     }
 }
