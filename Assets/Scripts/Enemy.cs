@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (!MainSceneManager.gameover)
+        if (!PlaySceneManager.gameOver)
         {
             //Check for sight and attack range
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
@@ -118,11 +118,11 @@ public class Enemy : MonoBehaviour
 
             if (timeBetweenAttacks >= 0.5)
             {
-                MainSceneManager.score += 20;
+                PlaySceneManager.money += 20;
             }
             else
             {
-                MainSceneManager.score += 40;
+                PlaySceneManager.money += 40;
             }
 
             Destroy(destroyGO, 2f);

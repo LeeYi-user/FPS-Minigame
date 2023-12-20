@@ -24,7 +24,7 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MainSceneManager.gameover)
+        if (PlaySceneManager.gameOver)
         {
             return;
         }
@@ -55,7 +55,7 @@ public class Boss : MonoBehaviour
         if (health <= 0)
         {
             GameObject destroyGO = Instantiate(destroyEffect, transform.position, Quaternion.identity);
-            MainSceneManager.score += 400;
+            PlaySceneManager.money += 400;
             Destroy(destroyGO, 2f);
             Destroy(gameObject);
         }

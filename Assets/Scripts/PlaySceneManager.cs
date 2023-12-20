@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlaySceneManager : MonoBehaviour
 {
     public static bool gameOver;
+    public static int money;
 
     // Start is called before the first frame update
     void Start()

@@ -22,7 +22,7 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!MainSceneManager.gameover)
+        if (!PlaySceneManager.gameOver)
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * MenuSceneManager.sens * 10;
             float mouseY = Input.GetAxisRaw("Mouse Y") * MenuSceneManager.sens * 10;

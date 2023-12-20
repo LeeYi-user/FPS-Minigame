@@ -8,8 +8,6 @@ public class Player : MonoBehaviour
 	public float maxHealth = 100f;
 	public float currentHealth;
 
-	public MainSceneManager MainSceneManager;
-
 	public AudioSource source;
 	public AudioClip clip;
 
@@ -28,18 +26,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKeyDown(KeyCode.P))
-        {
-			maxHealth = 10000;
-			currentHealth = maxHealth;
 
-			SetMaxHealth(maxHealth);
-        }
-
-		if (transform.position.y < -5f && currentHealth > 0f)
-		{
-			TakeDamage(currentHealth);
-		}
 	}
 
 	public void TakeDamage(float damage)
@@ -48,11 +35,6 @@ public class Player : MonoBehaviour
 
 		SetHealth(currentHealth);
 		source.PlayOneShot(clip);
-
-		if (currentHealth <= 0f)
-        {
-			MainSceneManager.GameOver("YOU LOSE");
-		}
 	}
 
 	public void TakeHealth(float health)
