@@ -6,17 +6,11 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
-
     public float groundDrag;
 
-    public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
-
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -50,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (PlaySceneManager.gameOver)
         {
-            moveSpeed = 0;
             rb.useGravity = false;
             rb.velocity = Vector3.zero;
         }
@@ -95,11 +88,11 @@ public class PlayerMovement : MonoBehaviour
 
         // on ground
         if(grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * PlaySceneManager.speed * 10f, ForceMode.Force);
 
         // in air
         else if(!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * PlaySceneManager.speed * 10f * airMultiplier, ForceMode.Force);
     }
 
     private void SpeedControl()
@@ -107,9 +100,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         // limit velocity if needed
-        if(flatVel.magnitude > moveSpeed)
+        if(flatVel.magnitude > PlaySceneManager.speed)
         {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            Vector3 limitedVel = flatVel.normalized * PlaySceneManager.speed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }
@@ -119,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(transform.up * PlaySceneManager.jump, ForceMode.Impulse);
     }
     private void ResetJump()
     {

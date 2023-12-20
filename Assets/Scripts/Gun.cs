@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private float damage; // 10
     [SerializeField] private float range; // 100
-    [SerializeField] private float fireRate; // 2
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private GameObject[] impactEffect;
 
-    [SerializeField] private int maxAmmo; // 6
     [SerializeField] private float reloadTime; // 1.5
 
     [SerializeField] private AudioSource audioSource;
@@ -30,7 +27,7 @@ public class Gun : MonoBehaviour
     private void Start()
     {
         isReloading = false;
-        currentAmmo = maxAmmo;
+        currentAmmo = PlaySceneManager.ammo;
         nextTimeToFire = 0f;
     }
 
@@ -60,7 +57,7 @@ public class Gun : MonoBehaviour
 
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire && Cursor.lockState == CursorLockMode.Locked)
         {
-            nextTimeToFire = Time.time + 1f / fireRate;
+            nextTimeToFire = Time.time + 1f / PlaySceneManager.fireRate;
             Shoot();
         }
     }
@@ -75,7 +72,7 @@ public class Gun : MonoBehaviour
         isReloading = false;
         animator.SetBool("isReloading", false);
 
-        currentAmmo = maxAmmo;
+        currentAmmo = PlaySceneManager.ammo;
     }
 
     private void Shoot()
@@ -95,7 +92,7 @@ public class Gun : MonoBehaviour
             if (hit.transform.gameObject.CompareTag("Enemy"))
             {
                 MadeImpact = 2;
-                hit.transform.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+                hit.transform.gameObject.GetComponent<Enemy>().TakeDamage(PlaySceneManager.damage);
             }
         }
 

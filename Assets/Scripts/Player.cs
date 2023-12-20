@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-	public float maxHealth = 100f;
 	public float currentHealth;
 
 	public AudioSource source;
@@ -18,9 +17,9 @@ public class Player : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		currentHealth = maxHealth;
+		currentHealth = PlaySceneManager.health;
 
-		SetMaxHealth(maxHealth);
+		SetMaxHealth(PlaySceneManager.health);
     }
 
     // Update is called once per frame
@@ -41,9 +40,9 @@ public class Player : MonoBehaviour
     {
 		currentHealth += health;
 
-		if (currentHealth > maxHealth)
+		if (currentHealth > PlaySceneManager.health)
         {
-			currentHealth = maxHealth;
+			currentHealth = PlaySceneManager.health;
         }
 
 		SetHealth(currentHealth);
