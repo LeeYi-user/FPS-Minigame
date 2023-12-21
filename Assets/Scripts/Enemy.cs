@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                PlaySceneManager.money += 800;
+                PlaySceneManager.money += 400;
             }
 
             EnemySpawner.enemyLiveCounter--;

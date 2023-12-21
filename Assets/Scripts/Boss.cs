@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public GameObject projectile;
+    private float health;
 
-    public float health;
+    public GameObject projectile;
     public GameObject destroyEffect;
     public AudioSource source;
     public AudioClip clip;
@@ -17,7 +17,8 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        regenTime = 1f;
+        health = EnemySpawner.waves * 100f;
+        regenTime = 0.5f;
         timer = 3;
     }
 
@@ -26,11 +27,12 @@ public class Boss : MonoBehaviour
     {
         if (PlaySceneManager.gameOver)
         {
+            Destroy(gameObject);
             return;
         }
 
         transform.Rotate(new Vector3(0, 90 * Time.deltaTime, 0));
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(5, 3, 0), 5 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, 5, 0), 5 * Time.deltaTime);
 
         timer -= Time.deltaTime;
 
@@ -38,11 +40,6 @@ public class Boss : MonoBehaviour
         {
             Instantiate(projectile, transform.position + new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), Random.Range(-2f, 2f)), Quaternion.identity);
             timer = regenTime;
-
-            if (regenTime > 0.2f)
-            {
-                regenTime -= 0.04f;
-            }
         }
     }
 
@@ -54,6 +51,7 @@ public class Boss : MonoBehaviour
 
         if (health <= 0)
         {
+            EnemySpawner.enemyLiveCounter--;
             GameObject destroyGO = Instantiate(destroyEffect, transform.position, Quaternion.identity);
             PlaySceneManager.money += 2000;
             Destroy(destroyGO, 2f);

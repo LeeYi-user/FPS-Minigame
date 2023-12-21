@@ -6,10 +6,12 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private PlaySceneManager playSceneManager;
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject enemyVariantPrefab;
+    [SerializeField] private GameObject bossPrefab;
 
-    [SerializeField] private float slope; // 1
-    [SerializeField] private float waveLimit; // 300
-    [SerializeField] private float enemyLimit; // 100
+    [SerializeField] private float slope;
+    [SerializeField] private float waveLimit;
+    [SerializeField] private float enemyLimit;
 
     public Vector3[] position;
 
@@ -34,17 +36,30 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        if (enemySpawnCounter < Sigmoid(waves))
+        if (enemySpawnCounter == 0 && enemyLiveCounter == 0 && waves % 10 == 0)
         {
-            if (nextTimeToSpawn < Time.time)
-            {
-                GameObject enemy = Instantiate(enemyPrefab, transform.position + position[Random.Range(0, 4)], Quaternion.identity);
-                enemySpawnCounter++;
-                enemyLiveCounter++;
-                nextTimeToSpawn = Time.time + 2f;
-            }
+            Instantiate(bossPrefab, new Vector3(0f, 15f, 0f), Quaternion.identity);
+            nextTimeToSpawn = Time.time + 2f;
+            enemyLiveCounter++;
         }
-        else if (enemyLiveCounter == 0)
+
+        if (enemySpawnCounter < Sigmoid(waves) && nextTimeToSpawn < Time.time)
+        {
+            if (waves % 3 == 0 && enemySpawnCounter > 0 && enemySpawnCounter % 3 == 0)
+            {
+                Instantiate(enemyVariantPrefab, position[Random.Range(0, 4)], Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(enemyPrefab, position[Random.Range(0, 4)], Quaternion.identity);
+            }
+
+            nextTimeToSpawn = Time.time + 1.5f;
+            enemySpawnCounter++;
+            enemyLiveCounter++;
+        }
+        
+        if (enemySpawnCounter >= Sigmoid(waves) && enemyLiveCounter == 0)
         {
             nextTimeToSpawn = Time.time + 2f;
             enemySpawnCounter = 0;

@@ -44,13 +44,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (PlaySceneManager.gameOver)
         {
-            rb.velocity = Vector3.zero;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             horizontalInput = 0f;
             verticalInput = 0f;
             return;
         }
         else
         {
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
             MyInput();
             SpeedControl();
         }

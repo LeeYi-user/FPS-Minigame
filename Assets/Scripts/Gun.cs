@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private float range; // 100
+    [SerializeField] private float range;
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private GameObject[] impactEffect;
 
-    [SerializeField] private float reloadTime; // 1.5
+    [SerializeField] private float reloadTime;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
@@ -18,7 +18,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private Transform BulletSpawnPoint;
     [SerializeField] private TrailRenderer BulletTrail;
-    [SerializeField] private float BulletSpeed; // 100
+    [SerializeField] private float BulletSpeed;
 
     private bool isReloading;
     private int currentAmmo;
@@ -96,6 +96,15 @@ public class Gun : MonoBehaviour
             {
                 MadeImpact = 2;
                 hit.transform.gameObject.GetComponent<Enemy>().TakeDamage(PlaySceneManager.damage);
+            }
+            else if (hit.transform.gameObject.CompareTag("Boss"))
+            {
+                MadeImpact = 2;
+                hit.transform.gameObject.GetComponent<Boss>().TakeDamage(PlaySceneManager.damage);
+            }
+            else if (hit.transform.gameObject.CompareTag("Missile"))
+            {
+                Destroy(hit.transform.gameObject);
             }
         }
 

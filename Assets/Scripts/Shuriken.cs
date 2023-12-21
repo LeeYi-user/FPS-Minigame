@@ -35,7 +35,7 @@ public class Shuriken : MonoBehaviour
         }
         else if (collider.tag == "Missile")
         {
-            collider.gameObject.GetComponent<Missile>().TakeDamage(damage);
+            Destroy(collider.gameObject);
         }
     }
 }

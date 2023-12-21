@@ -15,20 +15,20 @@ public class Missile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.position, 10 * Time.deltaTime);
-    }
+        if (PlaySceneManager.gameOver)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-    public void TakeDamage(float damage)
-    {
-        PlaySceneManager.money += 10;
-        Destroy(gameObject);
+        transform.position = Vector3.MoveTowards(transform.position, player.position, 10 * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().TakeDamage(5f);
+            collision.gameObject.GetComponent<Player>().TakeDamage(10f);
             Destroy(gameObject);
         }
     }

@@ -8,7 +8,7 @@ public class PlayerCam : MonoBehaviour
     public float sensY;
 
     float xRotation;
-    float yRotation = 90;
+    float yRotation;
 
     public Transform orientation;
 
@@ -21,17 +21,25 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PlaySceneManager.gameOver && Cursor.lockState == CursorLockMode.Locked)
+        if (!PlaySceneManager.gameOver)
         {
-            float mouseX = Input.GetAxisRaw("Mouse X") * MenuSceneManager.sens * 10;
-            float mouseY = Input.GetAxisRaw("Mouse Y") * MenuSceneManager.sens * 10;
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                float mouseX = Input.GetAxisRaw("Mouse X") * MenuSceneManager.sens * 10;
+                float mouseY = Input.GetAxisRaw("Mouse Y") * MenuSceneManager.sens * 10;
 
-            yRotation += mouseX;
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+                yRotation += mouseX;
+                xRotation -= mouseY;
+                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+                transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+                orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            }
+        }
+        else
+        {
+            xRotation = 0f;
+            yRotation = 0f;
         }
     }
 }

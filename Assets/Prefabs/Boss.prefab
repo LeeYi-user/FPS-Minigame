@@ -99,11 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 5999538449081897317, guid: ec8931e0175b8354287ab05b4faed35f, type: 3}
-  health: 1800
+  health: 1000
   destroyEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   source: {fileID: 1194605526459129313}
   clip: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
-  gameOver: 0
 --- !u!135 &8694690734083092811
 SphereCollider:
   m_ObjectHideFlags: 0

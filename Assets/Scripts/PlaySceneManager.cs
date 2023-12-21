@@ -6,12 +6,14 @@ using TMPro;
 
 public class PlaySceneManager : MonoBehaviour
 {
-    public static int money;
+    [SerializeField] private GameObject player;
 
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI wavesText;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject upgradeMenu;
+
+    public static int money;
 
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Slider speedSlider;
@@ -20,7 +22,6 @@ public class PlaySceneManager : MonoBehaviour
     [SerializeField] private Slider ammoSlider;
     [SerializeField] private Slider damageSlider;
     [SerializeField] private Slider fireRateSlider;
-
 
     public static int healthPrice = 100;
     public static int speedPrice = 100;
@@ -39,7 +40,7 @@ public class PlaySceneManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fireRatePriceText;
 
     public static float health = 60f;
-    public static float speed = 4.2f;
+    public static float speed = 5.6f;
     public static float jump = 10.4f;
 
     public static int ammo = 6;
@@ -51,7 +52,8 @@ public class PlaySceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -110,7 +112,7 @@ public class PlaySceneManager : MonoBehaviour
         if (money >= speedPrice)
         {
             speedSlider.value += 1f;
-            speed = speedSlider.value * 2.1f;
+            speed = speedSlider.value * 2.8f;
             money -= speedPrice;
             speedPrice *= 2;
 
@@ -227,6 +229,9 @@ public class PlaySceneManager : MonoBehaviour
 
     public void BackFromUpgrade()
     {
+        player.transform.position = new Vector3(0f, 1f, 0f);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         crosshair.SetActive(true);
         Player.maxHealth = health;
         Player.currentHealth = health;

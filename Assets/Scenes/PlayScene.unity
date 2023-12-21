@@ -4507,6 +4507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playSceneManager: {fileID: 955336826}
   enemyPrefab: {fileID: 8931697492554238155, guid: 47ce784d79e4d96449cab6f7149b88a2, type: 3}
+  enemyVariantPrefab: {fileID: 6125020946679172981, guid: 636c93f669124c246937daa9fb5ae773, type: 3}
+  bossPrefab: {fileID: 6296978132573398835, guid: e6705e49a0c7c614890680a474c03ed7, type: 3}
   slope: 0.9
   waveLimit: 30
   enemyLimit: 50
@@ -5156,6 +5158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5faa82486c8544e83cc45e0d6f8657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 246485140}
+  playerCam: {fileID: 1464897170}
   moneyText: {fileID: 487852292}
   wavesText: {fileID: 940295063}
   crosshair: {fileID: 1481994784}
