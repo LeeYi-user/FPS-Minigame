@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     public Vector3[] position;
 
-    public static int waves = 1;
+    public static int waves;
     public static int enemySpawnCounter;
     public static int enemyLiveCounter;
 
@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        waves = 1;
         enemySpawnCounter = 0;
         enemyLiveCounter = 0;
     }
@@ -29,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (PlaySceneManager.gameOver)
         {
-            nextTimeToSpawn = Time.time + 2.5f;
+            nextTimeToSpawn = Time.time + 2f;
             return;
         }
 
@@ -40,12 +41,12 @@ public class EnemySpawner : MonoBehaviour
                 GameObject enemy = Instantiate(enemyPrefab, transform.position + position[Random.Range(0, 4)], Quaternion.identity);
                 enemySpawnCounter++;
                 enemyLiveCounter++;
-                nextTimeToSpawn = Time.time + (10f - Mathf.Sqrt(Sigmoid(waves) / 10f) * 3.5f);
+                nextTimeToSpawn = Time.time + 2f;
             }
         }
         else if (enemyLiveCounter == 0)
         {
-            nextTimeToSpawn = Time.time + 2.5f;
+            nextTimeToSpawn = Time.time + 2f;
             enemySpawnCounter = 0;
             waves++;
         }

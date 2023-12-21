@@ -10,8 +10,7 @@ x = np.arange(0, waveLimit / min(1, slope), 0.1)
 y = []
 
 for t in x:
-    y_1 = 10 - ((int(enemyLimit / (1 + math.exp(-slope / (waveLimit / 10) * (t - (waveLimit / 2))))) + 1) / 10) ** (1/2) * 3.5
-    print(y_1)
+    y_1 = int(enemyLimit / (1 + math.exp(-slope / (waveLimit / 10) * (t - (waveLimit / 2))))) + 1
     y.append(y_1)
 
 plt.plot(x, y, label="Sigmoid")
