@@ -40,7 +40,7 @@ public class PlaySceneManager : MonoBehaviour
 
     public static float health = 60f;
     public static float speed = 4.2f;
-    public static float jump = 7.2f;
+    public static float jump = 10.4f;
 
     public static int ammo = 6;
     public static float damage = 10f;
@@ -135,7 +135,7 @@ public class PlaySceneManager : MonoBehaviour
         if (money >= jumpPrice)
         {
             jumpSlider.value += 1f;
-            jump = jumpSlider.value * 3.6f;
+            jump = jumpSlider.value * 3.2f + 4;
             money -= jumpPrice;
             jumpPrice *= 2;
 
