@@ -2750,9 +2750,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 468278275}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.1
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2974,7 +2974,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 580454254}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955336826}
+        m_TargetAssemblyTypeName: PlaySceneManager, Assembly-CSharp
+        m_MethodName: UpgradeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &580454254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3705,7 +3717,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 765776494}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955336826}
+        m_TargetAssemblyTypeName: PlaySceneManager, Assembly-CSharp
+        m_MethodName: UpgradeJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &765776494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4782,7 +4806,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 928994048}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955336826}
+        m_TargetAssemblyTypeName: PlaySceneManager, Assembly-CSharp
+        m_MethodName: UpgradeFireRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &928994048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5130,6 +5166,12 @@ MonoBehaviour:
   ammoSlider: {fileID: 2087300452}
   damageSlider: {fileID: 1019672205}
   fireRateSlider: {fileID: 539696841}
+  healthPriceText: {fileID: 900704735}
+  speedPriceText: {fileID: 549823188}
+  jumpPriceText: {fileID: 880237900}
+  ammoPriceText: {fileID: 1103119169}
+  damagePriceText: {fileID: 1204111470}
+  fireRatePriceText: {fileID: 1201484716}
 --- !u!4 &955336827
 Transform:
   m_ObjectHideFlags: 0
@@ -5601,9 +5643,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 830230019}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.2
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7070,7 +7112,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1259993354}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955336826}
+        m_TargetAssemblyTypeName: PlaySceneManager, Assembly-CSharp
+        m_MethodName: UpgradeSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1259993354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7597,7 +7651,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1294269404}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955336826}
+        m_TargetAssemblyTypeName: PlaySceneManager, Assembly-CSharp
+        m_MethodName: UpgradeHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1294269404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7856,9 +7922,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2117184425}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.2
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9063,7 +9129,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1636530475}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955336826}
+        m_TargetAssemblyTypeName: PlaySceneManager, Assembly-CSharp
+        m_MethodName: UpgradeAmmo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1636530475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9624,9 +9702,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 336938245}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.33
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9752,9 +9830,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 511270060}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.2
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10503,9 +10581,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 318832347}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.2
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
