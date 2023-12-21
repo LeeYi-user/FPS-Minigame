@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-	public float currentHealth;
+	[SerializeField] private PlaySceneManager playSceneManager;
+
+	public static float maxHealth;
+	public static float currentHealth;
 
 	public AudioSource source;
 	public AudioClip clip;
@@ -17,20 +20,31 @@ public class Player : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+		maxHealth = PlaySceneManager.health;
 		currentHealth = PlaySceneManager.health;
-
-		SetMaxHealth(PlaySceneManager.health);
     }
 
     // Update is called once per frame
     void Update()
     {
+		if (Input.GetKeyDown(KeyCode.Escape))
+        {
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		}
 
+		SetMaxHealth(maxHealth);
+		SetHealth(currentHealth);
 	}
 
 	public void TakeDamage(float damage)
 	{
 		currentHealth -= damage;
+
+		if (currentHealth <= 0)
+        {
+			playSceneManager.Upgrade();
+        }
 
 		SetHealth(currentHealth);
 		source.PlayOneShot(clip);
@@ -51,8 +65,6 @@ public class Player : MonoBehaviour
 	void SetMaxHealth(float health)
 	{
 		slider.maxValue = health;
-		slider.value = health;
-		fill.color = gradient.Evaluate(1f);
 	}
 
 	void SetHealth(float health)

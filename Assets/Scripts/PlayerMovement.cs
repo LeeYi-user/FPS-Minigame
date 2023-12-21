@@ -44,8 +44,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (PlaySceneManager.gameOver)
         {
-            rb.useGravity = false;
             rb.velocity = Vector3.zero;
+            horizontalInput = 0f;
+            verticalInput = 0f;
+            return;
         }
         else
         {
@@ -62,11 +64,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PlaySceneManager.gameOver)
+        {
+            return;
+        }
+
         MovePlayer();
     }
 
     private void MyInput()
     {
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            return;
+        }
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 

@@ -45,6 +45,11 @@ public class CustomBullet : MonoBehaviour
         //Count down lifetime
         maxLifetime -= Time.deltaTime;
         if (maxLifetime <= 0) Explode();
+
+        if (PlaySceneManager.gameOver)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Explode()

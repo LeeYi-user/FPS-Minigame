@@ -35,6 +35,9 @@ public class Gun : MonoBehaviour
     {
         if (PlaySceneManager.gameOver)
         {
+            isReloading = false;
+            currentAmmo = PlaySceneManager.ammo;
+            nextTimeToFire = 0f;
             return;
         }
 

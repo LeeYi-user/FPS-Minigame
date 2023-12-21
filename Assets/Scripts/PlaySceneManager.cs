@@ -7,6 +7,9 @@ public class PlaySceneManager : MonoBehaviour
 {
     public static int money;
 
+    [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject upgradeMenu;
+
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Slider speedSlider;
     [SerializeField] private Slider jumpSlider;
@@ -40,5 +43,24 @@ public class PlaySceneManager : MonoBehaviour
         ammo = (int)(ammoSlider.value * 30);
         damage = damageSlider.value * 50f;
         fireRate = fireRateSlider.value * 10f;
+    }
+
+    public void Upgrade()
+    {
+        crosshair.SetActive(false);
+        upgradeMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        gameOver = true;
+    }
+
+    public void BackFromUpgrade()
+    {
+        crosshair.SetActive(true);
+        Player.maxHealth = health;
+        Player.currentHealth = health;
+        EnemySpawner.enemySpawnCounter = 0;
+        EnemySpawner.enemyLiveCounter = 0;
+        gameOver = false;
     }
 }

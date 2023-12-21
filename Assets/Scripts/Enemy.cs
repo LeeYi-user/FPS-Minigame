@@ -48,6 +48,10 @@ public class Enemy : MonoBehaviour
             if (playerInSightRange && !playerInAttackRange) ChasePlayer();
             if (playerInAttackRange && playerInSightRange) AttackPlayer();
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Patroling()
@@ -125,6 +129,7 @@ public class Enemy : MonoBehaviour
                 PlaySceneManager.money += 40;
             }
 
+            EnemySpawner.enemyLiveCounter--;
             Destroy(destroyGO, 2f);
             Destroy(gameObject);
         }
