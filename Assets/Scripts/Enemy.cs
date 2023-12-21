@@ -122,11 +122,11 @@ public class Enemy : MonoBehaviour
 
             if (timeBetweenAttacks >= 0.5)
             {
-                PlaySceneManager.money += 20;
+                PlaySceneManager.money += 200;
             }
             else
             {
-                PlaySceneManager.money += 40;
+                PlaySceneManager.money += 600;
             }
 
             EnemySpawner.enemyLiveCounter--;

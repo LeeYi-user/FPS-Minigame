@@ -20,7 +20,7 @@ public class Missile : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        PlaySceneManager.money += 1;
+        PlaySceneManager.money += 10;
         Destroy(gameObject);
     }
 

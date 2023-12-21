@@ -1321,7 +1321,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  health: 120
+  health: 100
   destroyEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   source: {fileID: 1380544733808233795}
   clip: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
