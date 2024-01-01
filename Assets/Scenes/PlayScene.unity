@@ -4509,14 +4509,11 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8931697492554238155, guid: 47ce784d79e4d96449cab6f7149b88a2, type: 3}
   enemyVariantPrefab: {fileID: 6125020946679172981, guid: 636c93f669124c246937daa9fb5ae773, type: 3}
   bossPrefab: {fileID: 6296978132573398835, guid: e6705e49a0c7c614890680a474c03ed7, type: 3}
-  slope: 0.9
-  waveLimit: 30
-  enemyLimit: 50
   position:
-  - {x: 20, y: 0, z: 20}
+  - {x: 20, y: 0, z: 19}
   - {x: 20, y: 0, z: -20}
-  - {x: -20, y: 0, z: -20}
-  - {x: -20, y: 0, z: 20}
+  - {x: -19, y: 0, z: -20}
+  - {x: -19, y: 0, z: 19}
 --- !u!4 &920158045
 Transform:
   m_ObjectHideFlags: 0
@@ -4567,7 +4564,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24372
+  m_Name: pb_Mesh25022
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5139,6 +5136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 955336827}
   - component: {fileID: 955336826}
+  - component: {fileID: 955336828}
   m_Layer: 0
   m_Name: PlaySceneManager
   m_TagString: Untagged
@@ -5159,7 +5157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 246485140}
-  playerCam: {fileID: 1464897170}
   moneyText: {fileID: 487852292}
   wavesText: {fileID: 940295063}
   crosshair: {fileID: 1481994784}
@@ -5176,6 +5173,7 @@ MonoBehaviour:
   ammoPriceText: {fileID: 1103119169}
   damagePriceText: {fileID: 1204111470}
   fireRatePriceText: {fileID: 1201484716}
+  weaponSwitch: {fileID: 1059776647}
 --- !u!4 &955336827
 Transform:
   m_ObjectHideFlags: 0
@@ -5191,6 +5189,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &955336828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955336825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d750d847aaefd44ba65989c80bc5202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2868615631027704358, guid: 623833ef7cb9d7a47aaa2a51a0da9353, type: 3}
+  cooldown: 12
 --- !u!1 &957966978
 GameObject:
   m_ObjectHideFlags: 0

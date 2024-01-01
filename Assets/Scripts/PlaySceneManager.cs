@@ -47,6 +47,8 @@ public class PlaySceneManager : MonoBehaviour
     public static float damage = 10f;
     public static float fireRate = 2f;
 
+    [SerializeField] private WeaponSwitch weaponSwitch;
+
     public static bool gameOver;
 
     // Start is called before the first frame update
@@ -222,6 +224,7 @@ public class PlaySceneManager : MonoBehaviour
             }
             else
             {
+                weaponSwitch.SelectWeapon(1);
                 fireRatePriceText.text = "MAX";
             }
         }

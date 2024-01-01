@@ -9,10 +9,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject enemyVariantPrefab;
     [SerializeField] private GameObject bossPrefab;
 
-    [SerializeField] private float slope;
-    [SerializeField] private float waveLimit;
-    [SerializeField] private float enemyLimit;
-
     public Vector3[] position;
 
     public static int waves;
@@ -32,20 +28,20 @@ public class EnemySpawner : MonoBehaviour
     {
         if (PlaySceneManager.gameOver)
         {
-            nextTimeToSpawn = Time.time + 2f;
+            nextTimeToSpawn = Time.time + 3f;
             return;
         }
 
         if (enemySpawnCounter == 0 && enemyLiveCounter == 0 && waves % 10 == 0)
         {
             Instantiate(bossPrefab, new Vector3(0f, 15f, 0f), Quaternion.identity);
-            nextTimeToSpawn = Time.time + 2f;
+            nextTimeToSpawn = Time.time + 3f;
             enemyLiveCounter++;
         }
 
-        if (enemySpawnCounter < Sigmoid(waves) && nextTimeToSpawn < Time.time)
+        if (enemySpawnCounter < waves && nextTimeToSpawn < Time.time)
         {
-            if (waves % 3 == 0 && enemySpawnCounter > 0 && enemySpawnCounter % 3 == 0)
+            if (enemySpawnCounter > 0 && enemySpawnCounter % 5 == 0)
             {
                 Instantiate(enemyVariantPrefab, position[Random.Range(0, 4)], Quaternion.identity);
             }
@@ -54,21 +50,16 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(enemyPrefab, position[Random.Range(0, 4)], Quaternion.identity);
             }
 
-            nextTimeToSpawn = Time.time + 1.5f;
+            nextTimeToSpawn = Time.time + 1f;
             enemySpawnCounter++;
             enemyLiveCounter++;
         }
         
-        if (enemySpawnCounter >= Sigmoid(waves) && enemyLiveCounter == 0)
+        if (enemySpawnCounter >= waves && enemyLiveCounter == 0)
         {
-            nextTimeToSpawn = Time.time + 2f;
+            nextTimeToSpawn = Time.time + 3f;
             enemySpawnCounter = 0;
             waves++;
         }
-    }
-
-    private int Sigmoid(int w)
-    {
-        return (int)(enemyLimit / (1f + Mathf.Exp(-slope / (waveLimit / 10f) * (w - (waveLimit / 2f))))) + 1;
     }
 }

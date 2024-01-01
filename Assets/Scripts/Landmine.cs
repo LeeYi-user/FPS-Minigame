@@ -15,7 +15,7 @@ public class Landmine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y <= 0f)
+        if (PlaySceneManager.gameOver)
         {
             Destroy(gameObject);
         }
