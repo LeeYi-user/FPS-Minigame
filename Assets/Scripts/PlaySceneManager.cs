@@ -56,6 +56,7 @@ public class PlaySceneManager : MonoBehaviour
     public static float damage = 10f;
     public static float fireRate = 2f;
 
+    [SerializeField] private MeshRenderer[] weaponSkins;
     [SerializeField] private WeaponSwitch weaponSwitch;
 
     public static bool gameOver;
@@ -83,6 +84,11 @@ public class PlaySceneManager : MonoBehaviour
 
     public void Upgrade()
     {
+        foreach (MeshRenderer skin in weaponSkins)
+        {
+            skin.enabled = false;
+        }
+
         crosshair.SetActive(false);
         upgradeMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -259,6 +265,11 @@ public class PlaySceneManager : MonoBehaviour
 
     public void BackFromUpgrade()
     {
+        foreach (MeshRenderer skin in weaponSkins)
+        {
+            skin.enabled = true;
+        }
+
         player.transform.position = new Vector3(0f, 1f, 0f);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

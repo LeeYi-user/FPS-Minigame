@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
 			Cursor.visible = true;
 		}
 
+		if (transform.position.y < -10 && !PlaySceneManager.gameOver)
+        {
+			TakeDamage(currentHealth);
+        }
+
 		SetMaxHealth(maxHealth);
 		SetHealth(currentHealth);
 	}
