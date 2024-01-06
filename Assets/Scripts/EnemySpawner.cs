@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
         bossWave = 8;
         enemySpawnCounter = 0;
         enemyLiveCounter = 0;
+        nextTimeToSpawn = Time.time + 3f;
     }
 
     private void Update()
