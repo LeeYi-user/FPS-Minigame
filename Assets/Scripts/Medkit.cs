@@ -24,6 +24,7 @@ public class Medkit : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Player>().TakeHealth(30f);
+            MedkitSpawner.counter--;
             Destroy(gameObject);
         }
     }
