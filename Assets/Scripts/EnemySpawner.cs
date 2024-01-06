@@ -12,14 +12,17 @@ public class EnemySpawner : MonoBehaviour
     public Vector3[] position;
 
     public static int waves;
+    public static int bossWave;
     public static int enemySpawnCounter;
     public static int enemyLiveCounter;
 
     private float nextTimeToSpawn;
+    private bool nextBossWavePlus8;
 
     private void Start()
     {
         waves = 1;
+        bossWave = 8;
         enemySpawnCounter = 0;
         enemyLiveCounter = 0;
     }
@@ -29,11 +32,23 @@ public class EnemySpawner : MonoBehaviour
         if (PlaySceneManager.gameOver)
         {
             nextTimeToSpawn = Time.time + 3f;
+            nextBossWavePlus8 = false;
             return;
         }
 
-        if (enemySpawnCounter == 0 && enemyLiveCounter == 0 && waves % 10 == 0)
+        if (enemySpawnCounter == 0 && enemyLiveCounter == 0 && waves == bossWave)
         {
+            if (nextBossWavePlus8)
+            {
+                bossWave += 8;
+                nextBossWavePlus8 = false;
+            }
+            else
+            {
+                bossWave += 7;
+                nextBossWavePlus8 = true;
+            }
+
             Instantiate(bossPrefab, new Vector3(0f, 15f, 0f), Quaternion.identity);
             nextTimeToSpawn = Time.time + 3f;
             enemyLiveCounter++;

@@ -239,6 +239,7 @@ public class PlaySceneManager : MonoBehaviour
         Player.maxHealth = health;
         Player.currentHealth = health;
         EnemySpawner.waves = 1;
+        EnemySpawner.bossWave = 8;
         EnemySpawner.enemySpawnCounter = 0;
         EnemySpawner.enemyLiveCounter = 0;
         gameOver = false;

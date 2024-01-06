@@ -17,7 +17,7 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = EnemySpawner.waves * 100f;
+        health = EnemySpawner.waves * 125f;
         regenTime = 0.5f;
         timer = 3;
     }
