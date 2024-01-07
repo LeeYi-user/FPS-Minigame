@@ -5492,7 +5492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2868615631027704358, guid: 623833ef7cb9d7a47aaa2a51a0da9353, type: 3}
-  cooldown: 30
+  cooldown: 10
   limit: 5
 --- !u!1 &958382292
 GameObject:

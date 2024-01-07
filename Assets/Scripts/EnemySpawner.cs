@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (enemySpawnCounter < waves && nextTimeToSpawn < Time.time)
         {
-            if (enemySpawnCounter > 0 && enemySpawnCounter % 5 == 0)
+            if (enemySpawnCounter > 0 && enemySpawnCounter % 4 == 0)
             {
                 Instantiate(enemyVariantPrefab, position[Random.Range(0, 4)], Quaternion.identity);
             }

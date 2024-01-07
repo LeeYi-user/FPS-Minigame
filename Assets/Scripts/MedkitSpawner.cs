@@ -29,7 +29,7 @@ public class MedkitSpawner : MonoBehaviour
             return;
         }
 
-        if (counter < limit)
+        if (counter < limit && EnemySpawner.waves <= 8)
         {
             if (timer <= Time.time)
             {
